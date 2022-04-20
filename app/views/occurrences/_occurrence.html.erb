@@ -1,0 +1,27 @@
+<% @policeman.occurrences.each do |occurrence| %>
+  <div id="<%= dom_id occurrence %>">
+    <p>
+      <strong>Type:</strong>
+      <%= occurrence.type_name %>
+    </p>
+
+    <p>
+      <strong>Value:</strong>
+      <%= occurrence.value %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= occurrence.date %>
+    </p>
+
+    <p>
+      <strong>Policeman:</strong>
+      <%= occurrence.policeman.position %> <%= occurrence.policeman.name %>
+    </p>
+
+    <%= link_to "Editar", edit_policeman_occurrence_path(@policeman, occurrence) %>
+    <%= button_to "Deletar", [@policeman, occurrence], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'} %>
+
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%= render "occurrences/form" %>
+</div>
+
+<%= render @policeman %>
+
+<div>
+  <%= link_to "Edit this policeman", edit_policeman_path(@policeman) %> |
+  <%= link_to "Back to policemen", policemen_path %>
+
+  <%= button_to "Destroy this policeman", @policeman, method: :delete %>
+</div>
+
+<div>
+  <%= render "occurrences/occurrence" %>
+</div>
