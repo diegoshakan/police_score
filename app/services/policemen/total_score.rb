@@ -5,7 +5,15 @@ module Policemen
     end
 
     def call
-      @policeman.occurrences.sum(&:value)
+      total_score
+    end
+
+    private
+
+    attr_reader :policeman
+
+    def total_score
+      policeman.occurrences.sum(&:value)
     end
   end
 end

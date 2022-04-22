@@ -8,4 +8,8 @@ class Policeman < ApplicationRecord
   def total_score
     Policemen::TotalScore.new(self).call
   end
+
+  def score_by_month
+    Policemen::ScoreByMonth.new(self).call
+  end
 end

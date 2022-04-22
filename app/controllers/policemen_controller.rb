@@ -3,7 +3,7 @@ class PolicemenController < ApplicationController
 
   # GET /policemen or /policemen.json
   def index
-    @policemen = Policeman.all
+    @policemen = Policeman.all.sort_by(&:score_by_month).reverse
   end
 
   # GET /policemen/1 or /policemen/1.json
