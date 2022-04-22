@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :occurrence do
-    type { "" }
-    value { "MyString" }
-    policeman { nil }
+    type_name { ["Pistola", "Drogas", "Flagrante"].sample }
+    value { [8, 10, 16].sample }
   end
 end
