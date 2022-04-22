@@ -11,6 +11,7 @@
     <tr class="text-center">
       <th>Posto/Graduação</th>
       <th>Nome</th>
+      <th> Pontuação </th>
       <th colspan="3">Ações</th>
     </tr>
     </thead>
@@ -20,6 +21,7 @@
         <tr class="text-center">
           <td><%= policeman.position %></td>
           <td><%= policeman.name %></td>
+          <td><%= policeman.total_score %></td>
           <td> <%= link_to "Show this policeman", policeman, class: "btn btn-info btn-sm" %> </td>
           <td> <%= link_to "Editar", edit_policeman_path(policeman), class: "btn btn-warning btn-sm" %> </td>
           <td> <%= button_to "Deletar", policeman, method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'}, class: "btn btn-danger btn-sm" %> </td>

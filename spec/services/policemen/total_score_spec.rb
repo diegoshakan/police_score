@@ -1,17 +1,15 @@
 require 'rails_helper'
 
-describe Policemen::TotalScore do
-  # let(:policeman) { create(:policeman) }
-  # let(:occurrences) { create_list(:occurrence, 3, policeman: policeman)}
+RSpec.describe Policemen::TotalScore do
   before do
     @policeman = FactoryBot.create(:policeman)
-    @occurrences = FactoryBot.create_list(:occurrence, 3, policeman: @policeman)
+    @occurrences = FactoryBot.create_list(:occurrence, 3, value: 10, policeman: @policeman, date: DateTime.now)
   end
 
   context "score" do
     it 'total' do
-      result = @policeman.occurrences.sum(&:value)
-      expect(result).to eq(300)
+      result = Policemen::TotalScore.new(@policeman).call
+      expect(result).to eq(30)
     end
   end
 end
