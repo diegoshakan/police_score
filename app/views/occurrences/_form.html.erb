@@ -1,21 +1,23 @@
 <%= form_with(model: [@policeman, Occurrence.new]) do |form| %>
 
-  <div>
-    <%= form.label :type_name, style: "display: block" %>
-    <%= form.text_field :type_name %>
-  </div>
+  <div class="row">
+    <div class="col-3">
+      <%= form.label :type_name, style: "display: block" %>
+      <%= form.text_field :type_name, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :value, style: "display: block" %>
-    <%= form.text_field :value %>
-  </div>
+    <div class="col-3">
+      <%= form.label :value, style: "display: block" %>
+      <%= form.text_field :value, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
+    <div class="col-3">
+      <%= form.label :date, style: "display: block" %>
+      <%= form.date_field :date, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.submit %>
+    <div class="col-3 mt-4">
+      <%= form.submit class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>

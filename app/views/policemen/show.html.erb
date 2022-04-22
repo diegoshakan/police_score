@@ -4,15 +4,17 @@
   <%= render "occurrences/form" %>
 </div>
 
-<%= render @policeman %>
-
-<div>
-  <%= link_to "Edit this policeman", edit_policeman_path(@policeman) %> |
-  <%= link_to "Back to policemen", policemen_path %>
-
-  <%= button_to "Destroy this policeman", @policeman, method: :delete %>
+<div class="row mt-2">
+  <div class="col-3">
+    <h3> <%= @policeman.position %> <%= @policeman.name %></h3>
+  </div>
+  <div class="row">
+      <%= link_to "Edit this policeman", edit_policeman_path(@policeman) %> |
+      <%= link_to "Back to policemen", policemen_path %>
+      <%= button_to "Destroy this policeman", @policeman, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>
 
-<div>
+<div class="mt-3">
   <%= render "occurrences/occurrence" %>
 </div>
