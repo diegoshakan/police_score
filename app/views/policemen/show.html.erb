@@ -1,19 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
+<hr>
+
+<div class="row mt-2">
+  <div class="col-auto">
+    <h3> <%= @policeman.position %> <%= @policeman.name %></h3>
+  </div>
+  <div class="col-auto">
+    <%= link_to "Back to policemen", policemen_path, class: "btn btn-primary btn-sm mt-1" %>
+  </div>
+</div>
+
+<hr>
+
 <div>
+  <h4> Adicionar Ocorrência </h4>
   <%= render "occurrences/form" %>
 </div>
 
-<div class="row mt-2">
-  <div class="col-3">
-    <h3> <%= @policeman.position %> <%= @policeman.name %></h3>
-  </div>
-  <div class="row">
-      <%= link_to "Edit this policeman", edit_policeman_path(@policeman) %> |
-      <%= link_to "Back to policemen", policemen_path %>
-      <%= button_to "Destroy this policeman", @policeman, method: :delete, class: "btn btn-danger" %>
-  </div>
-</div>
+<hr>
 
 <div class="mt-3">
   <%= render "occurrences/occurrence" %>

@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Policemen</h1>
-
+<div class="mb-3">
+    <span class="fs-1"> Policemen </span>
+    <%= link_to "New policeman", new_policeman_path, class: "btn btn-success btn-sm mb-2 float-right" %>
+</div>
 <div id="policemen">
-  <% @policemen.each do |policeman| %>
-    <%= render policeman %>
-    <p>
-      <%= link_to "Show this policeman", policeman %>
-    </p>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+    <tr class="text-center">
+      <th>Posto/Graduação</th>
+      <th>Nome</th>
+      <th colspan="3">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @policemen.each do |policeman| %>
+      <div id="<%= dom_id policeman %>">
+        <tr class="text-center">
+          <td><%= policeman.position %></td>
+          <td><%= policeman.name %></td>
+          <td> <%= link_to "Show this policeman", policeman, class: "btn btn-primary btn-sm" %> </td>
+          <td> <%= link_to "Editar", edit_policeman_path(policeman), class: "btn btn-warning btn-sm" %> </td>
+          <td> <%= button_to "Deletar", policeman, method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'}, class: "btn btn-danger btn-sm" %> </td>
+        </tr>
+      </div>
+    <% end %>
+    </tbody>
+</table>
 </div>
 
-<%= link_to "New policeman", new_policeman_path %>

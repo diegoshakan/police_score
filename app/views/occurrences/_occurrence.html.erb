@@ -1,23 +1,23 @@
-<% @policeman.occurrences.each do |occurrence| %>
-  <div id="<%= dom_id occurrence %>">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Ocorrência</th>
-          <th scope="col">Pontuação</th>
-          <th scope="col">Data</th>
-          <th colspan="2">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+<table class="table table-striped">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">Ocorrência</th>
+      <th scope="col">Pontuação</th>
+      <th scope="col">Data</th>
+      <th colspan="2">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @policeman.occurrences.each do |occurrence| %>
+      <div id="<%= dom_id occurrence %>">
+        <tr class="text-center">
           <td><%= occurrence.type_name %></td>
           <td><%= occurrence.value %></td>
           <td><%= occurrence.date %></td>
-          <td> <%= link_to "Editar", edit_policeman_occurrence_path(@policeman, occurrence) %> </td>
-          <td> <%= button_to "Deletar", [@policeman, occurrence], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'} %> </td>
+          <td> <%= link_to "Editar", edit_policeman_occurrence_path(@policeman, occurrence), class: "btn btn-warning btn-sm mb-3" %> </td>
+          <td> <%= button_to "Deletar", [@policeman, occurrence], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'}, class: "btn btn-danger btn-sm mb-3" %> </td>
         </tr>
-      </tbody>
-    </table>
-</div>
-<% end %>
+      </div>
+    <% end %>
+  </tbody>
+</table>
