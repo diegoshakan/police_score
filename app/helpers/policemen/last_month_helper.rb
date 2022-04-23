@@ -1,0 +1,2 @@
+module Policemen::LastMonthHelper
+end
