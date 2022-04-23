@@ -5,6 +5,8 @@ class Policeman < ApplicationRecord
 
   validates :position, :name, presence: true
 
+  scope :last_month_with_occurrence, -> { includes(:occurrences).where(occurrences: { date: (Time.current.beginning_of_month - 1.month)..(Time.current.end_of_month - 1.month) }) }
+
   def total_score
     Policemen::TotalScore.new(self).call
   end
