@@ -14,4 +14,8 @@ class Policeman < ApplicationRecord
   def score_current_month
     Policemen::ScoreCurrentMonth.new(self).call
   end
+
+  def score_last_month
+    Policemen::ScoreLastMonth.new(self).call
+  end
 end
