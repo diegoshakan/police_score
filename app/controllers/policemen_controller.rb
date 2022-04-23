@@ -6,12 +6,12 @@ class PolicemenController < ApplicationController
     if params[:query].present?
       @policemen = Policeman.where("name LIKE ?", "%#{params[:query]}%")
     else
-      @policemen = Policeman.all.sort_by(&:score_by_month).reverse
+      @policemen = Policeman.all.sort_by(&:score_current_month).reverse
     end
 
     respond_to do |format|
       if turbo_frame_request? and turbo_frame_request_id == 'search'
-        format.html { render partial: "policemen/policemen_table", locals: { policemen: @policemen } }
+        format.html { render partial: "policemen_table", locals: { policemen: @policemen } }
       else
         format.html
       end

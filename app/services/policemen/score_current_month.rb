@@ -1,5 +1,5 @@
 module Policemen
-  class ScoreByMonth
+  class ScoreCurrentMonth
     def initialize(policeman)
       @policeman = policeman
     end

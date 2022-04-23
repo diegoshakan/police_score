@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Policemen::ScoreByMonth do
+RSpec.describe Policemen::ScoreCurrentMonth do
   before do
     @policeman = FactoryBot.create(:policeman)
     @oc_current_month = FactoryBot.create_list(:occurrence, 2, value: 11, policeman: @policeman, date: DateTime.now)
@@ -8,7 +8,7 @@ RSpec.describe Policemen::ScoreByMonth do
   end
 
   it '#call' do
-    result = Policemen::ScoreByMonth.new(@policeman).call
+    result = Policemen::ScoreCurrentMonth.new(@policeman).call
     expect(result).to eq(22)
   end
 end
