@@ -2,33 +2,28 @@
 
 <div class="mb-3">
   <span class="fs-1"> Policemen </span>
-  <%= link_to "New policeman", new_policeman_path, class: "btn btn-success mb-3" %>
+  <%= link_to "New policeman", new_policeman_path, class: "btn btn-success btn-sm mb-2" %>
+</div>
+
+<div class="row mt-3 mb-3">
+  <div class="col-auto">
+    <%= form_with url: policemen_path,
+                  method: :get,
+                  data: { turbo_frame: 'search',
+                  controller: 'search',
+                  action: 'keyup->search#call' } do |f| %>
+
+      <%= f.search_field :query, value: params[:query], class: "form-control", placeholder: "Buscar Policial" %>
+
+    <% end %>
+  </div>
+
+  <div class="col-auto mt-2">
+    <%= link_to "Limpar Busca", policemen_path %>
+  </div>
 </div>
 
 <div id="policemen">
-  <table class="table table-striped">
-    <thead>
-    <tr class="text-center">
-      <th>Posto/Graduação</th>
-      <th>Nome</th>
-      <th> Pontuação </th>
-      <th colspan="3">Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @policemen.each do |policeman| %>
-      <div id="<%= dom_id policeman %>">
-        <tr class="text-center">
-          <td><%= policeman.position %></td>
-          <td><%= policeman.name %></td>
-          <td><%= policeman.score_by_month %></td>
-          <td> <%= link_to "Show this policeman", policeman, class: "btn btn-info btn-sm" %> </td>
-          <td> <%= link_to "Editar", edit_policeman_path(policeman), class: "btn btn-warning btn-sm" %> </td>
-          <td> <%= button_to "Deletar", policeman, method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'}, class: "btn btn-danger btn-sm" %> </td>
-        </tr>
-      </div>
-    <% end %>
-    </tbody>
-</table>
+  <%= render 'policemen_table', policemen: @policemen %>
 </div>
 

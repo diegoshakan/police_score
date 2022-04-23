@@ -3,7 +3,19 @@ class PolicemenController < ApplicationController
 
   # GET /policemen or /policemen.json
   def index
-    @policemen = Policeman.all.sort_by(&:score_by_month).reverse
+    if params[:query].present?
+      @policemen = Policeman.where("name LIKE ?", "%#{params[:query]}%")
+    else
+      @policemen = Policeman.all.sort_by(&:score_by_month).reverse
+    end
+
+    respond_to do |format|
+      if turbo_frame_request? and turbo_frame_request_id == 'search'
+        format.html { render partial: "policemen/policemen_table", locals: { policemen: @policemen } }
+      else
+        format.html
+      end
+    end
   end
 
   # GET /policemen/1 or /policemen/1.json
