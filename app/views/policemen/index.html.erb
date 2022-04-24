@@ -5,6 +5,10 @@
   <%= link_to "New policeman", new_policeman_path, class: "btn btn-success btn-sm mb-2" %>
 </div>
 
+<div>
+  <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+</div>
+
 <div class="row mt-3 mb-3">
   <div class="col-auto">
     <%= form_with url: policemen_path,
