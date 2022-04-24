@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'home', to: "public#index"
+  get 'home/:id', to: "public#show"
+
   root "policemen#index"
 
   resources :policemen do

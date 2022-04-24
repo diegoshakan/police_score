@@ -1,0 +1,24 @@
+<%= turbo_frame_tag 'search' do %>
+  <table class="table table-striped">
+    <thead>
+    <tr class="text-center">
+      <th> Posto/Graduação </th>
+      <th> Nome </th>
+      <th> Pontuação </th>
+      <th> Ação </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% policemen.each do |policeman| %>
+      <div id="<%= dom_id policeman %>">
+        <tr class="text-center">
+          <td> <%= policeman.position %> </td>
+          <td> <%= policeman.name %> </td>
+          <td> <%= policeman.score_current_month %> </td>
+          <td> <%= link_to "Show this policeman", "/home/#{policeman.id}", data: {turbo: false}, class: "btn btn-info btn-sm" %> </td>
+        </tr>
+      </div>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

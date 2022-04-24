@@ -1,0 +1,28 @@
+<div class="mb-3">
+  <span class="fs-1"> Policemen </span>
+</div>
+
+<div class="row mt-3 mb-3">
+  <div class="col-auto">
+    <%= form_with url: home_path,
+                  method: :get,
+                  data: { turbo_frame: 'search',
+                          controller: 'search',
+                          action: 'keyup->search#call' } do |f| %>
+
+      <%= f.search_field :query, value: params[:query], class: "form-control", placeholder: "Buscar Policial" %>
+
+    <% end %>
+  </div>
+
+  <div class="col-auto mt-2">
+    <%= link_to "Limpar Busca", policemen_path %>
+  </div>
+</div>
+
+<div id="policemen">
+  <%= render 'policemen_table', policemen: @policemen %>
+</div>
+
+<%= link_to "Último Mês", last_month_policemen_path %>
+
