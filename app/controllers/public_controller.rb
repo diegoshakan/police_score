@@ -1,5 +1,6 @@
 class PublicController < ApplicationController
   before_action :set_policeman, only: %i[ show ]
+  skip_before_action :authenticate_user!
 
   def index
     if params[:query].present?
