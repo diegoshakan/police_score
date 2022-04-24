@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   get 'home', to: "public#index"
+  get 'home/last_month', to: "public/last_month#index"
   get 'home/:id', to: "public#show"
+
+
 
   root "policemen#index"
 
