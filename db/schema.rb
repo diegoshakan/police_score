@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_172021) do
   enable_extension "plpgsql"
 
   create_table "occurrences", force: :cascade do |t|
-    t.string "type_name"
+    t.integer "type_name"
     t.integer "value"
     t.datetime "date"
     t.bigint "policeman_id", null: false
