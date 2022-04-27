@@ -3,12 +3,7 @@
   <div class="row">
     <div class="col-3">
       <%= form.label :type_name, style: "display: block" %>
-      <%= form.text_field :type_name, class: "form-control" %>
-    </div>
-
-    <div class="col-3">
-      <%= form.label :value, style: "display: block" %>
-      <%= form.text_field :value, class: "form-control" %>
+      <%= form.select :type_name, Occurrence.type_names.keys, { include_blank: "Selecione" }, { class: "form-select" } %>
     </div>
 
     <div class="col-3">
