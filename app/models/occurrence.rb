@@ -22,8 +22,4 @@ class Occurrence < ApplicationRecord
   def add_value
     Occurrences::AddValue.new(self).call
   end
-
-  def add_name
-    self.type_name = Occurrence.type_names["#{self.type_name}"]
-  end
 end

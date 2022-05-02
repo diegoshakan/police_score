@@ -12,7 +12,7 @@
         <tr class="text-center">
           <td><%= occurrence.type_name %></td>
           <td><%= occurrence.value %></td>
-          <td><%= occurrence.date %></td>
+          <td><%= localize(occurrence.date) %></td>
         </tr>
       </div>
     <% end %>

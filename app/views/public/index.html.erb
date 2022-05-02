@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <span class="fs-1"> Policemen </span>
+  <span class="fs-1"> <%= translate("policemen") %> - <%= I18n.t("month") %>: <%= I18n.t((Date.current).strftime("%B")) %> </span>
 </div>
 
 <div class="row mt-3 mb-3">
@@ -10,13 +10,13 @@
                           controller: 'search',
                           action: 'keyup->search#call' } do |f| %>
 
-      <%= f.search_field :query, value: params[:query], class: "form-control", placeholder: "Buscar Policial" %>
+      <%= f.search_field :query, value: params[:query], class: "form-control", placeholder: translate("looking_for_policeman") %>
 
     <% end %>
   </div>
 
   <div class="col-auto mt-2">
-    <%= link_to "Limpar Busca", policemen_path %>
+    <%= link_to translate("clean_search"), policemen_path %>
   </div>
 </div>
 
@@ -24,5 +24,5 @@
   <%= render 'policemen_table', policemen: @policemen %>
 </div>
 
-<%= link_to "Último Mês", home_last_month_path %>
+<%= link_to translate("last_month"), home_last_month_path %>
 

@@ -1,5 +1,5 @@
 <div>
-  <h3> Mês: <%= (Date.current - 1.month).strftime("%B") %> </h3>
+  <h3> <%= I18n.t("month") %>: <%= I18n.t((Date.current - 1.month).strftime("%B")) %> </h3>
 </div>
 
 <table class="table table-striped mt-5">
@@ -18,11 +18,11 @@
         <td> <%= policeman.position %> </td>
         <td> <%= policeman.name %> </td>
         <td> <%= policeman.score_last_month %> </td>
-        <td> <%= link_to "Show this policeman", "../home/#{policeman.id}", data: {turbo: false}, class: "btn btn-info btn-sm" %> </td>
+        <td> <%= link_to I18n.t("show_this_policeman"), "../home/#{policeman.id}", data: {turbo: false}, class: "btn btn-info btn-sm" %> </td>
       </tr>
     </div>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to "Voltar", home_path %>
+<%= link_to I18n.t("back"), home_path %>
