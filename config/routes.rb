@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'home', to: "public#index"
   get 'home/last_month', to: "public/last_month#index"
+  get 'home/last_month/:id', to: "public/last_month#show"
   get 'home/:id', to: "public#show"
 
   resources :policemen do

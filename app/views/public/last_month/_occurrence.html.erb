@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">Ocorrência</th>
+      <th scope="col">Pontuação</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @policeman.occurrences.last_month.order(date: :desc).each do |occurrence| %>
+      <div id="<%= dom_id occurrence %>">
+        <tr class="text-center">
+          <td><%= occurrence.type_name %></td>
+          <td><%= occurrence.value %></td>
+          <td><%= localize(occurrence.date) %></td>
+        </tr>
+      </div>
+    <% end %>
+  </tbody>
+</table>

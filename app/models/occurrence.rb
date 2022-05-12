@@ -5,6 +5,9 @@ class Occurrence < ApplicationRecord
 
   validates :type_name, :date, presence: true
 
+  scope :current_month, -> { where(date: Time.current.beginning_of_month..Time.current.end_of_month) }
+  scope :last_month, -> { where(date: (Time.current.beginning_of_month - 1.month)..(Time.current.end_of_month - 1.month)) }
+
   enum type_name:  [
     "Flagranteado",
     "Arma longa",

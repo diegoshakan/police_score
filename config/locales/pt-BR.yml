@@ -73,8 +73,9 @@ pt-BR:
   show_this_policeman: "Mais Info"
   policemen: "Policiais"
 
-  show: Exibir
-  edit: Editar
-  destroy: Excluir
-  new: Novo
-  back: Voltar
+  show: "Exibir"
+  edit: "Editar"
+  destroy: "Excluir"
+  new: "Novo"
+  back: "Voltar"
+  back_to_home: "Voltar Para Tela Inicial"
