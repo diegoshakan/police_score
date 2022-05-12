@@ -3,6 +3,7 @@
 <div class="mb-3">
   <span class="fs-1"> Policemen </span>
   <%= link_to "New policeman", new_policeman_path, class: "btn btn-success btn-sm mb-2" %>
+  <span class="fs-3 float-end mt-3"> <%= link_to translate("last_month"), last_month_policemen_path %> </span>
 </div>
 
 <div>
@@ -30,6 +31,3 @@
 <div id="policemen">
   <%= render 'policemen_table', policemen: @policemen %>
 </div>
-
-<%= link_to "Último Mês", last_month_policemen_path %>
-

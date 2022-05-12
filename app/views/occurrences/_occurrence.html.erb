@@ -13,7 +13,7 @@
         <tr class="text-center">
           <td> <%= occurrence.type_name %> </td>
           <td> <%= occurrence.value %> </td>
-          <td> <%= occurrence.date %> </td>
+          <td> <%= localize(occurrence.date) %> </td>
           <td> <%= link_to "Editar", edit_policeman_occurrence_path(@policeman, occurrence), class: "btn btn-warning btn-sm mb-3" %> </td>
           <td> <%= button_to "Deletar", [@policeman, occurrence], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta ocorrência?'}, class: "btn btn-danger btn-sm mb-3" %> </td>
         </tr>
