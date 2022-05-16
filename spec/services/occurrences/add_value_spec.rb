@@ -6,7 +6,7 @@ RSpec.describe Occurrences::AddValue do
     @occurrence = Occurrence.new
     @occurrence.policeman = @policeman
     @occurrence.date = DateTime.now
-    @occurrence.type_name = "Arma longa"
+    @occurrence.type_name = "Colete"
   end
 
   it '#call' do
@@ -15,6 +15,6 @@ RSpec.describe Occurrences::AddValue do
 
     @occurrence.save
 
-    expect(@occurrence.value).to eq(16)
+    expect(@occurrence.value).to eq(8)
   end
 end

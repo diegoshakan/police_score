@@ -23,7 +23,7 @@ module Occurrences
     end
 
     def values
-      [10, 16, 10, 8, 6, 4, 10, 16, 1]
+      [10, 16, 10, 8, 6, 4, 8, 10, 16, 1]
     end
   end
 end

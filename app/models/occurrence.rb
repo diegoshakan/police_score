@@ -15,6 +15,7 @@ class Occurrence < ApplicationRecord
     "Revólver",
     "Arma caseira",
     "Simulacro",
+    "Colete",
     "Droga até 1kg",
     "Droga mais de 1kg",
     "Recuperação de veículo roubado"
